@@ -29,8 +29,10 @@ jobs:
         sudo chmod 400 /home/$USER/.ssh/id_rsa
         sudo service sshd restart
         ls -al /home/$USER/.ssh
-    - name: Pinging through Ansible
+    - name: Signing into machine
       run: |
        ssh -i home/$USER/.ssh/id_rsa -o StrictHostKeyChecking=false ubuntu@13.229.126.226; exit
        #ansible-playbook -i ./inventory ./myplay.yml
+    - name: Pinging through Ansible
+      run: |
        ansible -i ./inventory workers -m ping 
