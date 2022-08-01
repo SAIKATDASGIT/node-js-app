@@ -31,6 +31,6 @@ jobs:
         ls -al /home/$USER/.ssh
     - name: Pinging through Ansible
       run: |
-       #ssh -i home/$USER/.ssh/id_rsa -o StrictHostKeyChecking=false ubuntu@13.229.126.226
+       ssh -i home/$USER/.ssh/id_rsa -o StrictHostKeyChecking=false ubuntu@13.229.126.226; exit
        #ansible-playbook -i ./inventory ./myplay.yml
        ansible -i ./inventory workers -m ping 
